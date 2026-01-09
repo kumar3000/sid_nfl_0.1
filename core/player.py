@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from team import Team
-import pandas as pd
+from .team import Team
 
 @dataclass
 class Player:
