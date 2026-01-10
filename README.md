@@ -21,3 +21,9 @@ Simple, text-based football simulator to practice Python basics.
         - Regularseason
         - Postseason
         - Offseason (possibly change teams / contract extensions)
+
+- ToDo:
+    - More intricate scoring algorithm with random player interaction
+        - Add a debug mode to set score
+    - Offseason
+    - College (to determine player rating)
