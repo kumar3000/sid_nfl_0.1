@@ -5,4 +5,6 @@ from .team import Team
 class Player:
     def __init__(self, name: str, team: Team):
         self.name = name
+
+    def Draft(self, team: Team):
         self.team = team
