@@ -33,4 +33,4 @@ class Player:
         print(type_effect(f'[POST SEASON RECORD {self.post_wins}-{self.post_losses}]'))
         print(type_effect(f'[SUPER BOWLS]'), end=' ')
         for super_bowl in self.super_bowls:
-            print(type_effect(f'{super_bowl}]'), end=' ')
+            print(type_effect(f'{super_bowl}'), end=' ')
