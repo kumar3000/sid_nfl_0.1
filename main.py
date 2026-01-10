@@ -1,6 +1,11 @@
-import core.player as player
-import core.team as team
+from core import player, team
 import pandas as pd
 
-player = player.Player('John Doe', team.Team(pd.read_csv(r'docs/club_data.csv')))
-print(player.name + ' is on the ' + player.team.name + ' ' + player.team.conference + ' ' + player.team.division + ' division.')   
+# Create player
+name = input('Enter your name: ')
+player = player.Player(name, team.Team(pd.read_csv(r'docs/club_data.csv')))
+print(f'Welcome {player.name}!')
+
+# Draft player to team
+player.Draft(team.Team(pd.read_csv(r'docs/club_data.csv')))
+print('The ' + player.team.name + ' select ' + player.name + '!')
