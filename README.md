@@ -10,20 +10,19 @@ Simple, text-based football simulator to practice Python basics.
 
 - main.py
     - Player Creation
+        - Debug mode
         - Name
-        - Stats (select from 5* to 1* QB)
+        - Year
     - Draft Process
-        - Pick based off * rating
-        - Random team
+        - Random for now
     - Seasons loop
         - for seasons < 20
             - seasons += 1
-        - Regularseason
+        - Regular Season
         - Postseason
         - Offseason (possibly change teams / contract extensions)
 
 - ToDo:
-    - More intricate scoring algorithm with random player interaction
-        - Add a debug mode to set score
+    - Implement season loop in main.py instead of Season.Start()
     - Offseason
     - College (to determine player rating)
