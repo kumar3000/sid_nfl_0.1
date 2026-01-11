@@ -20,7 +20,7 @@ def main():
     player_team = Team(config.teams)
     config.teams = config.teams[config.teams['Name'] != player_team.name]
     config.teams = config.teams.reset_index(drop=True)
-    player.Draft(team=player_team)
+    player.Draft(team=player_team, year_joined=year)
 
     # Seasons loop
     Season(player=player, year=year).Start()

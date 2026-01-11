@@ -39,8 +39,8 @@ class Season:
                 input('')
             
             # Awards
-            if self.player.team.losses <= 3:
-                self.player.mvps.append(self.year)
+            if self.player.season_tds >= 45:
+                self.player.mvps.append(f'({self.year} {self.player.team.abbreviation})')
 
             # Post season
             post_bye = False
@@ -74,6 +74,14 @@ class Season:
 
             else: # If you missed the playoffs... (you can't win a playoff game)
                 print(type_effect('You missed the playoffs this season.'))
+
+                # Option to switch teams
+                switch = input('Switch teams? [Y/N] ')
+                if switch.lower() == 'y':
+                    config.teams.loc[len(config.teams)] = self.player.team.team_data
+                    self.player.SwitchTeam(Team(config.teams), year_joined=self.year)
+                else:
+                    print(type_effect('You will remain with your current team.\n'))
 
             self.player.DisplayStats()
 
