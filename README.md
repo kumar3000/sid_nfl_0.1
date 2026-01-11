@@ -23,6 +23,6 @@ Simple, text-based football simulator to practice Python basics.
         - Offseason (possibly change teams / contract extensions)
 
 - ToDo:
-    - Implement season loop in main.py instead of Season.Start()
+    - Make it so the seasons continue until you decide to retire
     - Offseason
     - College (to determine player rating)

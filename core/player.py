@@ -26,11 +26,14 @@ class Player:
         self.post_losses = 0
         self.post_ties = 0
 
+        # Career seasons
+        self.career_seasons = []
+
     def Draft(self, team: Team, year_joined: int) -> None:
         # Assign team
         self.team = team
         self.teams.append(f'({self.team.abbreviation} {year_joined})')
-        print(type_effect('The ' + self.team.name + ' select ' + self.name + '!'))
+        print(type_effect('\nThe ' + self.team.name + ' select ' + self.name + '!'))
 
         # Generate rating between 5* and 1* QB
         if self.rating == 0: # If no rating is provided (rating not provided in constructor), generate a random one
@@ -39,10 +42,10 @@ class Player:
 
     def SwitchTeam(self, team: Team, year_joined: int) -> None:
         self.team = team
-        self.teams.append(f'({self.team.abbreviation} {year_joined})')
+        self.teams.append(f'({self.team.abbreviation} {year_joined + 1})')
         config.teams = config.teams[config.teams['Name'] != self.team.name]
         config.teams = config.teams.reset_index(drop=True)
-        print(type_effect(f'{self.name} has signed to the {self.team.name}!\n'))
+        print(type_effect(f'{self.name} has signed to the {self.team.name}!'))
 
     def DisplayStats(self) -> None:
         # Teams
@@ -72,3 +75,14 @@ class Player:
             print(type_effect(f'\n[{len(self.super_bowls)}x SUPER BOWL CHAMP]'), end=' ')
             for super_bowl in self.super_bowls:
                 print(type_effect(f'{super_bowl}'), end=' ')
+        
+        print('') # Seperate stats from seasons
+
+    def DisplaySeasons(self) -> None:
+        if len(self.career_seasons) == 1:
+            print(type_effect(f'\n[{len(self.career_seasons)} CAREER SEASON]'))
+        else:
+            print(type_effect(f'\n[{len(self.career_seasons)} CAREER SEASONs]'))
+        for season in self.career_seasons[:-1]:
+            print(f'{season}')
+        print(type_effect(f'{self.career_seasons[-1]}'))
