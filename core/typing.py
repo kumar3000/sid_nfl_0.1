@@ -1,7 +1,13 @@
+from core.debug import debug
 import sys
 import time
 
-def type_effect(text, delay=0.05) -> str:
+if debug:
+    delay = float(input('[TYPE SPEED (0.01-0.05)] '))
+else:
+    delay = 0.03
+
+def type_effect(text, delay=delay) -> str:
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush() # Forces the character to appear immediately
@@ -9,7 +15,7 @@ def type_effect(text, delay=0.05) -> str:
     
     return ''
 
-def type_input(text, delay=0.05) -> str:
+def type_input(text, delay=delay) -> str:
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()

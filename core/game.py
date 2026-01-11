@@ -27,20 +27,28 @@ class Game:
     
     def Play(self, post_season: bool = False) -> bool:
         # Generate random score between 0 and 100 for each team
-        p_score = 7 * random.randint(0, 5) + 3 * random.randint(0, 5) + 3 * random.randint(0, self.player.rating)
-        cpu_score = 7 * random.randint(0, 5) + 3 * random.randint(0, 5)
+        p_tds = random.randint(0, self.player.rating)
+        self.player.season_tds += p_tds
+        self.player.tds += p_tds
+        cpu_tds = random.randint(0, self.player.rating - 1)
+        p_score = 7 * random.randint(0, 2) + 7 * p_tds + 3 * random.randint(0, 3)
+        cpu_score = 7 * random.randint(0, 2) + 7 * cpu_tds + 3 * random.randint(0, 3)
 
         # Determine winner
         if p_score > cpu_score:
             print(f'{self.p_team.name} won {p_score} to {cpu_score}!')
+            print(f'{self.player.name} scored {p_tds} TDs!')
             return True
         elif p_score < cpu_score:
             print(f'{self.p_team.name} lost {p_score} to {cpu_score}!')
+            print(f'{self.player.name} scored {p_tds} TDs.')
             return False
         else:
             if post_season == True:
                 print(f'{self.p_team.name} won overtime {p_score + 6} to {cpu_score}!')
+                print(f'{self.player.name} scored {p_tds} TDs!')
                 return True
             else:
                 print(f'{self.p_team.name} tied {p_score} to {cpu_score}!')
+                print(f'{self.player.name} scored {p_tds} TDs.')
             return None
