@@ -99,7 +99,7 @@ class Season:
         self.player.DisplaySeasons()
 
         # Option to switch teams
-        switch = input('\nSwitch teams? [Y/N] ')
+        switch = input('\nSWITCH TEAMS? [Y/N] ')
         if switch.lower() == 'y':
             config.teams.loc[len(config.teams)] = self.player.team.team_data
             self.player.SwitchTeam(Team(config.teams), year_joined=self.year)
