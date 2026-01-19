@@ -27,9 +27,10 @@ def main():
         # Entire season
         Season(player=player, year=year).Start()
         year += 1
+        player.age += 1
         
         # Retire option
-        retire = input('\nRETIRE? [Y/N] ')
+        retire = input(f'\nYou turned {player.age} years old.\nRETIRE? [Y/N] ')
         if retire.lower() == 'y':
             break
         else:

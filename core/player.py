@@ -8,6 +8,7 @@ class Player:
         self.name = name
         self.rating = rating
         self.seasons = 0
+        self.age = 22
 
         # Player stats
         self.wins = 0
