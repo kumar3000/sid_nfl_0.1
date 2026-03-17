@@ -4,7 +4,9 @@ import sys
 import time
 
 if debug:
-    delay = float(input('[TYPE SPEED (0.01-0.05)] '))
+    delay = 0
+    while delay < 0.01 or delay > 0.05:
+        delay = float(input('[TYPE SPEED (0.01-0.05)] '))
 else:
     delay = 0.03
 

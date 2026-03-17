@@ -8,10 +8,9 @@ import config
 
 def main():
     # 1. Create player
-    if debug:
+    rating = 0    
+    while rating > 5 or rating < 1:
         rating = int(input('[RATING (1-5)] '))
-    else:
-        rating = 0
     name = input('[NAME] ')
     year = int(input('[YEAR] '))
     player = Player(name=name, rating=rating)
