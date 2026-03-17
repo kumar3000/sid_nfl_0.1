@@ -4,13 +4,17 @@ from core.season import Season
 from core.debug import debug
 from core.typing import type_effect
 import pandas as pd
+import random
 import config
 
 def main():
     # 1. Create player
     rating = 0    
-    while rating > 5 or rating < 1:
-        rating = int(input('[RATING (1-5)] '))
+    if debug == 1:
+        while rating > 5 or rating < 1:
+            rating = int(input('[RATING (1-5)] '))
+    else:
+        rating = random.randint(1, 5)
     name = input('[NAME] ')
     year = int(input('[YEAR] '))
     player = Player(name=name, rating=rating)
