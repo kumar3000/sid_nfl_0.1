@@ -22,6 +22,7 @@ class Player:
         # Post season stats
         self.super_bowls = []
         self.mvps = []
+        self.awards = []
         self.teams = []
         self.post_wins = 0
         self.post_losses = 0
@@ -70,6 +71,12 @@ class Player:
             print(type_effect(f'\n[{len(self.mvps)}x MVP]'), end=' ')
             for mvp in self.mvps:
                 print(type_effect(f'{mvp}'), end=' ')
+
+        # Other awards
+        if len(self.awards) > 0:
+            print(type_effect('\n[{len(self.awards)x AWARDS}]'), end=' ')
+            for award in self.awards:
+                print(type_effect(f'{award}'), end=' ')
 
         # Super bowls
         if len(self.super_bowls) > 0:

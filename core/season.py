@@ -43,10 +43,16 @@ class Season:
                 Game(player=self.player, cpu_team=cpu_team).Update()
             input('')
             
-            # Awards
+        # Awards
+        # MVP
         if self.player.team.wins >= 13:
             self.player.mvps.append(f'({self.year} {self.player.team.abbreviation})')
             awards_str = f' [MVP]'
+        
+        # ROTY
+        if self.player.wins > 11 and self.player.seasons == 1:
+            self.player.awards.append(f'({self.year} {self.player.team.abbreviation})')
+            awards_str = f' [ROTY]'
 
         # Post season
         post_bye = False
