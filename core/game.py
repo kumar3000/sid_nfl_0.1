@@ -2,6 +2,11 @@ from .team import Team
 from .player import Player
 import random
 
+# !-- IMPLEMENT --!
+# Scoring algorithm based on player rating, etc.
+def Score() -> int:
+    return score
+
 class Game:
     def __init__(self, player: Player, cpu_team: Team) -> None:
         self.player = player
