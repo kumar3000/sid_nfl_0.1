@@ -47,12 +47,12 @@ class Season:
         # MVP
         if self.player.team.wins >= 13:
             self.player.mvps.append(f'({self.year} {self.player.team.abbreviation})')
-            awards_str = f' [MVP]'
+            awards_str += f' [MVP]'
         
         # ROTY
-        if self.player.wins > 11 and self.player.seasons == 1:
-            self.player.awards.append(f'({self.year} {self.player.team.abbreviation})')
-            awards_str = f' [ROTY]'
+        if self.player.wins > 9 and self.player.seasons == 1:
+            self.player.awards.append(f'({self.year} ROTY)')
+            awards_str += f' [ROTY]'
 
         # Post season
         post_bye = False

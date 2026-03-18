@@ -74,7 +74,7 @@ class Player:
 
         # Other awards
         if len(self.awards) > 0:
-            print(type_effect('\n[{len(self.awards)x AWARDS}]'), end=' ')
+            print(type_effect(f'\n[{len(self.awards)}x AWARDs]'), end=' ')
             for award in self.awards:
                 print(type_effect(f'{award}'), end=' ')
 
