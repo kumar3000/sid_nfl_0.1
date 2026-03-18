@@ -45,14 +45,19 @@ class Season:
             
         # Awards
         # MVP
-        if self.player.team.wins >= 13:
+        if self.player.team.losses <= 3:
             self.player.mvps.append(f'({self.year} {self.player.team.abbreviation})')
             awards_str += f' [MVP]'
         
         # ROTY
-        if self.player.wins > 9 and self.player.seasons == 1:
+        if self.player.team.losses <= 7 and self.player.seasons == 1:
             self.player.awards.append(f'({self.year} ROTY)')
             awards_str += f' [ROTY]'
+
+        # OPOTY
+        if self.player.season_tds >= 40 and self.player.seasons > 1 and 3 < self.player.team.losses < 8:
+            self.player.awards.append(f'({self.year} OPOTY)')
+            awards_str += f' [OPOTY]'
 
         # Post season
         post_bye = False
@@ -92,6 +97,7 @@ class Season:
             print(type_effect('You missed the playoffs this season.'))
 
         # End of season stats
+        self.player.hof_points = len(self.player.mvps) + len(self.player.awards) + len(self.player.super_bowls)
         self.player.DisplayStats()
 
         # Append season info to career_seasons

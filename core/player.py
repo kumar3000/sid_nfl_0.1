@@ -28,8 +28,9 @@ class Player:
         self.post_losses = 0
         self.post_ties = 0
 
-        # Career seasons
+        # Other stats
         self.career_seasons = []
+        self.hof_points = 0
 
     def Draft(self, team: Team, year_joined: int) -> None:
         # Assign team
@@ -66,13 +67,14 @@ class Player:
         print(type_effect(f'[SEASON TDs] {self.season_tds}'), end=' ')
         print(type_effect(f'[CAREER TDs] {self.tds}'), end=' ')
 
-        # MVP awards
+        # Awards
+        # MVP
         if len(self.mvps) > 0:
             print(type_effect(f'\n[{len(self.mvps)}x MVP]'), end=' ')
             for mvp in self.mvps:
                 print(type_effect(f'{mvp}'), end=' ')
 
-        # Other awards
+        # ROTY, OPOTY
         if len(self.awards) > 0:
             print(type_effect(f'\n[{len(self.awards)}x AWARDs]'), end=' ')
             for award in self.awards:
