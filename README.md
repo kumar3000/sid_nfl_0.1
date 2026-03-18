@@ -23,5 +23,8 @@ Simple, text-based football simulator to practice Python basics.
         - Offseason (possibly change teams / contract extensions)
 
 - ToDo:
+    - Add more awards
+        - 1st, 2nd, and 3rd Team All-Pro
+        - Pro Bowler
     - Offseason
     - College (to determine player rating)

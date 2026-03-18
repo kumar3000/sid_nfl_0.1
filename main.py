@@ -35,6 +35,10 @@ def main():
         # Retire option
         retire = input(f'\nYou turned {player.age} years old.\nRETIRE? [Y/N] ')
         if retire.lower() == 'y':
+            if player.hof_points >= 5:
+                print(type_effect('You are a Hall of Famer!'))
+            else:
+                print(type_effect('You are not a Hall of Famer.'))
             break
         else:
             print(type_effect('You get ready for another season.'))
