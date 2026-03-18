@@ -23,6 +23,5 @@ Simple, text-based football simulator to practice Python basics.
         - Offseason (possibly change teams / contract extensions)
 
 - ToDo:
-    - Make it so the seasons continue until you decide to retire
     - Offseason
     - College (to determine player rating)
