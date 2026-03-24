@@ -3,7 +3,7 @@ from core.debug import debug
 import sys
 import time
 
-if debug:
+if debug == '1':
     delay = 0
     while delay < 0.01 or delay > 0.05:
         delay = float(input('[TYPE SPEED (0.01-0.05)] '))
