@@ -16,15 +16,22 @@ Simple, text-based football simulator to practice Python basics.
     - Draft Process
         - Random for now
     - Seasons loop
-        - for seasons < 20
+        - as long as you don't retire (infinite seasons)
             - seasons += 1
         - Regular Season
         - Postseason
-        - Offseason (possibly change teams / contract extensions)
+        - Offseason (change teams / stay)
 
 - ToDo:
     - Add more awards
         - 1st, 2nd, and 3rd Team All-Pro
         - Pro Bowler
+
+### 0.2
+- ToDo:
+    - College
+        - Declare option after 3 years
+        - College statistics determine draft and rating
     - Offseason
-    - College (to determine player rating)
+        - Contract system
+            - Negotiations, contract durations
