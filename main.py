@@ -10,7 +10,7 @@ import config
 def main():
     # 1. Create player
     rating = 0    
-    if debug == 1:
+    if debug == '1':
         while rating > 5 or rating < 1:
             rating = int(input('[RATING (1-5)] '))
     else:
