@@ -36,12 +36,12 @@ class Season:
         
         for week in range(games):
             if week == bye:
-                print(f'[WEEK {week + 1}] BYE WEEK')
+                print(type_effect(f'[WEEK {week + 1}] BYE WEEK'))
             else:
                 cpu_team = Team(config.teams)
-                print(f'[WEEK {week + 1}] {self.player.team.name} vs {cpu_team.name}')
+                print(type_effect(f'[WEEK {week + 1}] {self.player.team.name} vs {cpu_team.name}'))
                 Game(player=self.player, cpu_team=cpu_team).Update()
-            input('')
+            input('\n[NEXT WEEK]')
             
         # Awards
         # MVP
@@ -55,7 +55,7 @@ class Season:
             awards_str += f' [ROTY]'
 
         # OPOTY
-        if self.player.season_tds >= 40 and self.player.seasons > 1 and 3 < self.player.team.losses < 8:
+        if self.player.season_tds >= 40 and self.player.seasons > 1 and self.player.team.losses < 8:
             self.player.awards.append(f'({self.year} OPOTY)')
             awards_str += f' [OPOTY]'
 
@@ -79,7 +79,7 @@ class Season:
                     cpu_team = Team(config.teams[config.teams['Conference'] != self.player.team.conference])
                 print(type_effect(f'[{week}] {self.player.team.name} vs {cpu_team.name}'))
                 post_won = Game(player=self.player, cpu_team=cpu_team).Play(post_season=True)
-                input('')
+                input('\n[NEXT WEEK]')
                 if post_won == False:
                     self.player.post_losses += 1
                     self.player.losses += 1
@@ -102,9 +102,9 @@ class Season:
 
         # Append season info to career_seasons
         if self.player.team.ties > 0:
-            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses}-{self.player.team.ties}'
+            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses}-{self.player.team.ties} ({self.player.season_tds}x TDs)'
         else:
-            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses}'
+            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses} ({self.player.season_tds}x TDs)'
         season_info += post_str
         season_info += awards_str
         self.player.career_seasons.append(season_info)

@@ -1,11 +1,33 @@
 from .team import Team
 from .player import Player
+from .debug import debug
 import random
+import time
 
-# !-- IMPLEMENT --!
-# Scoring algorithm based on player rating, etc.
-def Score() -> int:
-    return score
+# Mini game that returns the # of touchdowns a player has thrown in the game
+def Mini_Game(player: Player) -> int:
+    p_tds = 0 # Worst case scenario
+
+    # Game sim
+    delay = random.randint(1, 5)
+    print("Driving...")
+    time.sleep(delay)
+    t = time.time() # Start time
+    input("PASS!")
+    score = time.time() - t
+    print(f"\nScore: {score:.2f}\n")
+    
+    # TD calculation
+    if score < 0.25:
+        p_tds = 4
+    elif score < 0.3:
+        p_tds = 3
+    elif score < 0.35:
+        p_tds = 2
+    elif score < 0.4:
+        p_tds = 1
+
+    return p_tds
 
 class Game:
     def __init__(self, player: Player, cpu_team: Team) -> None:
@@ -32,12 +54,17 @@ class Game:
     
     def Play(self, post_season: bool = False) -> bool:
         # Generate random score between 0 and 100 for each team
-        p_tds = random.randint(0, self.player.rating)
-        self.player.season_tds += p_tds
+        if debug == '1':
+            p_tds = random.randint(0, self.player.rating)
+        else:
+            p_tds = Mini_Game(self.player)
         self.player.tds += p_tds
-        cpu_tds = random.randint(0, self.player.rating - 1)
-        p_score = 7 * random.randint(0, 2) + 7 * p_tds + 3 * random.randint(0, 3)
+        self.player.season_tds += p_tds
+        cpu_tds = random.randint(0, p_tds)
+        p_score = 7 * random.randint(0, cpu_tds) + 7 * p_tds + 3 * random.randint(0, 3)
         cpu_score = 7 * random.randint(0, 2) + 7 * cpu_tds + 3 * random.randint(0, 3)
+        if p_score == cpu_score:
+            p_score += random.randint(0, 1) * 3
 
         # Determine winner
         if p_score > cpu_score:
