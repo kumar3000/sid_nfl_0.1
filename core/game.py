@@ -55,7 +55,7 @@ class Game:
         # Generate random score between 0 and 100 for each team
         # p_tds = random.randint(0, self.player.rating)
         p_tds = Mini_Game(self.player)
-        cpu_tds = random.randint(0, self.player.rating - 1)
+        cpu_tds = random.randint(0, p_tds)
         p_score = 7 * random.randint(0, cpu_tds) + 7 * p_tds + 3 * random.randint(0, 3)
         cpu_score = 7 * random.randint(0, 2) + 7 * cpu_tds + 3 * random.randint(0, 3)
         if p_score == cpu_score:
