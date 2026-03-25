@@ -55,7 +55,7 @@ class Season:
             awards_str += f' [ROTY]'
 
         # OPOTY
-        if self.player.season_tds >= 40 and self.player.seasons > 1 and 3 < self.player.team.losses < 8:
+        if self.player.season_tds >= 40 and self.player.seasons > 1 and self.player.team.losses < 8:
             self.player.awards.append(f'({self.year} OPOTY)')
             awards_str += f' [OPOTY]'
 
