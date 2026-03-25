@@ -1,5 +1,6 @@
 from .team import Team
 from .player import Player
+from .debug import debug
 import random
 import time
 
@@ -26,8 +27,6 @@ def Mini_Game(player: Player) -> int:
     elif score < 0.4:
         p_tds = 1
 
-    player.tds += p_tds
-    player.season_tds += p_tds
     return p_tds
 
 class Game:
@@ -55,8 +54,12 @@ class Game:
     
     def Play(self, post_season: bool = False) -> bool:
         # Generate random score between 0 and 100 for each team
-        # p_tds = random.randint(0, self.player.rating)
-        p_tds = Mini_Game(self.player)
+        if debug == '1':
+            p_tds = random.randint(0, self.player.rating)
+        else:
+            p_tds = Mini_Game(self.player)
+        self.player.tds += p_tds
+        self.player.season_tds += p_tds
         cpu_tds = random.randint(0, p_tds)
         p_score = 7 * random.randint(0, cpu_tds) + 7 * p_tds + 3 * random.randint(0, 3)
         cpu_score = 7 * random.randint(0, 2) + 7 * cpu_tds + 3 * random.randint(0, 3)
