@@ -17,11 +17,13 @@ def Mini_Game(player: Player) -> int:
     print(f"\nScore: {score:.2f}\n")
     
     # TD calculation
-    if score < 0.2:
+    if score < 0.25:
+        p_tds = 4
+    elif score < 0.3:
         p_tds = 3
     elif score < 0.35:
         p_tds = 2
-    elif score < 0.5:
+    elif score < 0.4:
         p_tds = 1
 
     player.tds += p_tds

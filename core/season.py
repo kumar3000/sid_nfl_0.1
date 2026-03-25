@@ -36,10 +36,10 @@ class Season:
         
         for week in range(games):
             if week == bye:
-                print(f'[WEEK {week + 1}] BYE WEEK')
+                print(type_effect(f'[WEEK {week + 1}] BYE WEEK'))
             else:
                 cpu_team = Team(config.teams)
-                print(f'[WEEK {week + 1}] {self.player.team.name} vs {cpu_team.name}')
+                print(type_effect(f'[WEEK {week + 1}] {self.player.team.name} vs {cpu_team.name}'))
                 Game(player=self.player, cpu_team=cpu_team).Update()
             input('\n[NEXT WEEK]')
             
@@ -102,9 +102,9 @@ class Season:
 
         # Append season info to career_seasons
         if self.player.team.ties > 0:
-            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses}-{self.player.team.ties}'
+            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses}-{self.player.team.ties} ({self.player.season_tds}x TDs)'
         else:
-            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses}'
+            season_info = f'[{self.year} {self.player.team.abbreviation}] {self.player.team.wins}-{self.player.team.losses} ({self.player.season_tds}x TDs)'
         season_info += post_str
         season_info += awards_str
         self.player.career_seasons.append(season_info)
