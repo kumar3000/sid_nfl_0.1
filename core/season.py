@@ -41,7 +41,7 @@ class Season:
                 cpu_team = Team(config.teams)
                 print(f'[WEEK {week + 1}] {self.player.team.name} vs {cpu_team.name}')
                 Game(player=self.player, cpu_team=cpu_team).Update()
-            input('')
+            input('\n[NEXT WEEK]')
             
         # Awards
         # MVP
@@ -79,7 +79,7 @@ class Season:
                     cpu_team = Team(config.teams[config.teams['Conference'] != self.player.team.conference])
                 print(type_effect(f'[{week}] {self.player.team.name} vs {cpu_team.name}'))
                 post_won = Game(player=self.player, cpu_team=cpu_team).Play(post_season=True)
-                input('')
+                input('\n[NEXT WEEK]')
                 if post_won == False:
                     self.player.post_losses += 1
                     self.player.losses += 1

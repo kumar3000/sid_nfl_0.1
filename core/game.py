@@ -14,7 +14,7 @@ def Mini_Game(player: Player) -> int:
     t = time.time() # Start time
     input("PASS!")
     score = time.time() - t
-    print(f"Score: {score:.2f}\n")
+    print(f"\nScore: {score:.2f}\n")
     
     # TD calculation
     if score < 0.2:
